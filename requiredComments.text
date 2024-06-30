@@ -1,0 +1,10 @@
+
+
+
+docker build -t test .
+docker tag test abbas790/test:v1
+docker push abbas790/test:v1
+kubectl apply -f spring-boot-deployment.yaml
+kubectl apply -f spring-boot-service.yaml
+kubectl port-forward pod/test-service-d77669b45-j628n 8080:8080
+kubectl logs test-service-d77669b45-8crrb

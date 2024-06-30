@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test-service
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: test-service
+  template:
+    metadata:
+      labels:
+        app: test-service
+    spec:
+      containers:
+      - name: test-service
+        # Replace 'your-docker-hub-username' with your actual Docker Hub username
+        image: abbas790/test:v1
+        ports:
+        - containerPort: 8080
